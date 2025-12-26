@@ -1,0 +1,47 @@
+/* 다이얼로그 탭 스타일 */
+.cke_dialog_tabs a.cke_dialog_tab {
+    min-width: 0 !important;
+    /* padding: 6px 4px !important;  */
+    white-space: nowrap;
+    font-size: 12.5px;
+}
+
+/* 스크롤바 스타일 (Chrome, Safari) */
+#cke-stickers-grid::-webkit-scrollbar,
+#cke-smile-grid::-webkit-scrollbar {
+    width: 10px;
+}
+
+#cke-stickers-grid::-webkit-scrollbar-track,
+#cke-smile-grid::-webkit-scrollbar-track {
+    background: #797d81cb;
+    border-radius: 5px;
+}
+
+#cke-stickers-grid::-webkit-scrollbar-thumb,
+#cke-smile-grid::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 6px;
+}
+
+#cke-stickers-grid::-webkit-scrollbar-thumb:hover,
+#cke-smile-grid::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* 이미지 그리드 애니메이션 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#cke-stickers-grid > div,
+#cke-smile-grid > div {
+    animation: fadeIn 0.3s ease-out;
+}
