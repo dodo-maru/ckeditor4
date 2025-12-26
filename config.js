@@ -8,6 +8,7 @@ CKEDITOR.editorConfig = function( config ) {
 	// %REMOVE_START%
 	// The configuration options below are needed when running CKEditor from source files.
 	config.plugins = 'dialogui,dialog,about,basicstyles,notification,button,toolbar,clipboard,enterkey,entities,floatingspace,wysiwygarea,indent,indentlist,fakeobjects,link,list,undo';
+	config.extraPlugins = 'stickers';
 	config.skin = 'moono-lisa';
 	// %REMOVE_END%
 
@@ -24,7 +25,7 @@ CKEDITOR.editorConfig = function( config ) {
 		{ name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },
 		{ name: 'paragraph',   groups: [ 'list', 'indent', 'blocks', 'align', 'bidi' ] },
 		{ name: 'links' },
-		{ name: 'insert' },
+		{ name: 'insert', groups: [ 'Stickers' ]},
 		{ name: 'styles' },
 		{ name: 'colors' },
 		{ name: 'tools' },
