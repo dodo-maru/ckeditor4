@@ -1,26 +1,22 @@
 <?php
 /**
- * 이미지 목록을 반환하는 PHP 스크립트 (10개 폴더 지원)
- * 경로: plugins/stickers/images/ 로 부터 하위 폴더의 이미지를 가져옴 
+ * stickers v3.0 by dodomaru
+ * Put your's stickers images in plugins/stickers/images/stickers & smile Folder 
  */
 
 header('Content-Type: application/json');
 header('Access-Control-Allow-Origin: *');
 
-// 🎯 10개 폴더 허용 (순서대로)
 $allowedFolders = array('sticker', 'smile');
 $folder = isset($_GET['folder']) ? $_GET['folder'] : 'sticker';
 
-// 보안: 허용된 폴더만 접근 가능
 if (!in_array($folder, $allowedFolders)) {
     echo json_encode(array('error' => 'Invalid folder', 'requested' => $folder, 'allowed' => $allowedFolders));
     exit;
 }
 
-// 현재 파일의 경로를 구합니다.
-$currentPath = dirname(__FILE__);
 
-// 상대 경로를 사용하여 $imagesDir 설정
+$currentPath = dirname(__FILE__);
 $imagesDir = $currentPath . '/images/' . $folder . '/';
 
 $allowedExtensions = array('jpg', 'jpeg', 'png', 'gif', 'svg', 'webp', 'bmp');
@@ -45,11 +41,9 @@ if (is_dir($imagesDir)) {
         }
     }
     
-    // 파일명으로 정렬
     sort($images);
 } else {
-    // 폴더가 없으면 생성 잠시 무력화함 
-    // @mkdir($imagesDir, 0755, true);
+    @mkdir($imagesDir, 0755, true);
 }
 
 echo json_encode($images);
